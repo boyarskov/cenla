@@ -1,4 +1,4 @@
-package task3;
+package testprojects.task3;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
