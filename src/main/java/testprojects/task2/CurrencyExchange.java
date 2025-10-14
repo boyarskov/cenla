@@ -1,4 +1,4 @@
-package task2;
+package testprojects.task2;
 
 import java.util.Locale;
 import java.util.Scanner;
