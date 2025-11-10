@@ -1,8 +1,9 @@
-package task4.task1.manager;
+package task5.task1.manager;
 
-import task4.task1.model.*;
-import task4.task1.model.enums.RoomStatus;
-import task4.task1.model.enums.SortType;
+import task5.task1.model.*;
+import task5.task1.model.enums.RoomStatus;
+import task5.task1.model.enums.SortType;
+
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
@@ -137,18 +138,26 @@ public class HotelManager {
         }
     }
 
-    public void getTotalFreeRooms() {
+    public int getTotalFreeRooms() {
         long count = hotel.getRooms().stream()
                 .filter(r -> r.getStatus() == RoomStatus.FREE)
                 .count();
         System.out.println("Всего свободных номеров: " + count);
+
+        return (int) count;
     }
 
-    public void getTotalGuests() {
+    public int getTotalGuests() {
         long count = hotel.getRooms().stream()
                 .filter(r -> r.getStatus() == RoomStatus.OCCUPIED)
                 .count();
         System.out.println("Общее число постояльцев: " + count);
+
+        return (int) count;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
     }
 
     public void showRoomDetails(int roomNumber) {
