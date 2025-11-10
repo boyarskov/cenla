@@ -1,6 +1,7 @@
-package task4.task1.model;
+package task5.task1.model;
 
-import task4.task1.model.enums.RoomStatus;
+import task5.task1.model.enums.RoomStatus;
+
 import java.util.ArrayList;
 import java.util.List;
 

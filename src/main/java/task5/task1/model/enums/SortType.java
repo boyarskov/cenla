@@ -1,4 +1,4 @@
-package task4.task1.model.enums;
+package task5.task1.model.enums;
 
 public enum SortType {
     BY_PRICE,

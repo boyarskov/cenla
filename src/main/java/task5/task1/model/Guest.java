@@ -1,4 +1,4 @@
-package task4.task1.model;
+package task5.task1.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,9 @@ public class Guest {
     }
 
     public double getTotalServicePrice() {
-        double total = 0;
-        for (Service s : services) {
-            total += s.getPrice();
-        }
-        return total;
+        return services.stream()
+                .mapToDouble(Service::getPrice)
+                .sum();
     }
 
     public String getName() {

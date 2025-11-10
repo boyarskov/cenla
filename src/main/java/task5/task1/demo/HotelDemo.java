@@ -1,9 +1,12 @@
-package task4.task1.demo;
+package task5.task1.demo;
 
-import task4.task1.manager.HotelManager;
-import task4.task1.model.*;
-import task4.task1.model.enums.RoomStatus;
-import task4.task1.model.enums.SortType;
+import task5.task1.manager.HotelManager;
+import task5.task1.model.Hotel;
+import task5.task1.model.Room;
+import task5.task1.model.Service;
+import task5.task1.model.enums.RoomStatus;
+import task5.task1.model.enums.SortType;
+import task5.task1.model.Guest;
 
 public class HotelDemo {
     public static void main(String[] args) {

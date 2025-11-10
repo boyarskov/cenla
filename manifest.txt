@@ -1,2 +1,2 @@
-Main-Class: task4.task1.demo.HotelDemo 
+Main-Class: demo.task5.task1.HotelDemo
  
