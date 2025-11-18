@@ -1,4 +1,4 @@
-package task5.task1.ui.menu;
+package task6.task1.ui.menu;
 
 import java.util.ArrayList;
 import java.util.Collections;

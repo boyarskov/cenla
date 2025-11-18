@@ -1,10 +1,10 @@
-package task5.task1.ui.app;
+package task6.task1.ui.app;
 
-import task5.task1.manager.HotelManager;
-import task5.task1.model.*;
-import task5.task1.ui.MenuController;
-import task5.task1.ui.factory.ConsoleUiFactory;
-import task5.task1.ui.factory.UiFactory;
+import task6.task1.manager.HotelManager;
+import task6.task1.model.*;
+import task6.task1.ui.MenuController;
+import task6.task1.ui.factory.ConsoleUiFactory;
+import task6.task1.ui.factory.UiFactory;
 
 import java.util.Scanner;
 

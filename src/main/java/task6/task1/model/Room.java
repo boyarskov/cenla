@@ -1,6 +1,6 @@
-package task5.task1.model;
+package task6.task1.model;
 
-import task5.task1.model.enums.RoomStatus;
+import task6.task1.model.enums.RoomStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,13 @@ public class Room {
     private int capacity;        // вместимость (сколько человек)
     private RoomStatus status;   // текущий статус
     private Guest guest;         // текущий постоялец (если есть)
+    private static int nextId = 1;
+    private int id;
 
     private List<Booking> bookingHistory;
 
     public Room(int number, double price, int capacity) {
+        this.id = nextId++;
         this.number = number;
         this.price = price;
         this.capacity = capacity;
@@ -23,6 +26,15 @@ public class Room {
     }
 
     // Геттеры и сеттеры
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getNumber() {
         return number;
     }

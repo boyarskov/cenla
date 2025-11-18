@@ -1,4 +1,4 @@
-package task5.task1.ui.menu;
+package task6.task1.ui.menu;
 
 public class MenuBuilder {
     private Menu root;

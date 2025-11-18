@@ -1,4 +1,4 @@
-package task5.task1.model;
+package task6.task1.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,11 @@ import java.util.List;
 public class Guest {
     private String name;
     private List<Service> services;
+    private static int nextId = 1;
+    private int id;
 
     public Guest(String name) {
+        this.id = nextId++;
         this.name = name;
         this.services = new ArrayList<>();
     }
@@ -23,8 +26,20 @@ public class Guest {
                 .sum();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

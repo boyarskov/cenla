@@ -1,4 +1,4 @@
-package task5.task1.model;
+package task6.task1.model;
 
 import java.time.LocalDate;
 
@@ -6,11 +6,22 @@ public class Booking {
     private Guest guest;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
+    private static int nextId = 1;
+    private int id;
 
     public Booking(Guest guest, LocalDate checkInDate, LocalDate checkOutDate) {
+        this.id = nextId++;
         this.guest = guest;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Guest getGuest() {

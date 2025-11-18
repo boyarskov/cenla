@@ -1,4 +1,4 @@
-package task5.task1.ui;
+package task6.task1.ui;
 
 @FunctionalInterface
 public interface IAction {
