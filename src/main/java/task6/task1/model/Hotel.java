@@ -1,4 +1,4 @@
-package task5.task1.model;
+package task6.task1.model;
 
 import java.util.ArrayList;
 import java.util.List;

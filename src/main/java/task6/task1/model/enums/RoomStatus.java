@@ -1,4 +1,4 @@
-package task5.task1.model.enums;
+package task6.task1.model.enums;
 
 public enum RoomStatus {
     FREE,

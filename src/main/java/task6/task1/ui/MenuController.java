@@ -1,6 +1,6 @@
-package task5.task1.ui;
+package task6.task1.ui;
 
-import task5.task1.ui.menu.Menu;
+import task6.task1.ui.menu.Menu;
 import java.util.Scanner;
 
 public class MenuController {
