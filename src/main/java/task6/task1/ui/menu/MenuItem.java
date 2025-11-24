@@ -1,6 +1,6 @@
-package task5.task1.ui.menu;
+package task6.task1.ui.menu;
 
-import task5.task1.ui.IAction;
+import task6.task1.ui.IAction;
 
 public class MenuItem {
     private final String title;
