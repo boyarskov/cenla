@@ -13,8 +13,8 @@ public class Room {
     private Guest guest;         // текущий постоялец (если есть)
     private static int nextId = 1;
     private int id;
-
     private List<Booking> bookingHistory;
+    private int maxHistoryEntries = 3;
 
     public Room(int number, double price, int capacity) {
         this.id = nextId++;
@@ -25,7 +25,9 @@ public class Room {
         this.bookingHistory = new ArrayList<>(); // инициализация списка историй
     }
 
-    // Геттеры и сеттеры
+    public void setMaxHistoryEntries(int maxHistoryEntries) {
+        this.maxHistoryEntries = maxHistoryEntries;
+    }
 
     public int getId() {
         return id;
@@ -69,7 +71,7 @@ public class Room {
 
     public void addBooking(Booking booking) {
         bookingHistory.add(booking);
-        if (bookingHistory.size() > 3) {
+        if (bookingHistory.size() > maxHistoryEntries) {
             bookingHistory.remove(0); // храним только 3 последних
         }
     }
