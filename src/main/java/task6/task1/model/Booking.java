@@ -1,15 +1,16 @@
 package task6.task1.model;
 
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Booking {
+public class Booking implements Serializable {
     private Guest guest;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private static int nextId = 1;
     private int id;
 
-    public Booking(Guest guest, LocalDate checkInDate, LocalDate checkOutDate) {
+    public Booking (Guest guest, LocalDate checkInDate, LocalDate checkOutDate) {
         this.id = nextId++;
         this.guest = guest;
         this.checkInDate = checkInDate;
