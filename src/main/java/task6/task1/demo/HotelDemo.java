@@ -1,5 +1,6 @@
 package task6.task1.demo;
 
+import task6.task1.manager.Config;
 import task6.task1.manager.HotelManager;
 import task6.task1.model.Hotel;
 import task6.task1.model.Room;
@@ -10,8 +11,9 @@ import task6.task1.model.Guest;
 
 public class HotelDemo {
     public static void main(String[] args) {
+        Config config = new Config("config.properties");
         Hotel hotel = new Hotel();
-        HotelManager manager = new HotelManager(hotel);
+        HotelManager manager = new HotelManager(hotel, config);
 
         hotel.addRoom(new Room(101, 2500, 2));
         hotel.addRoom(new Room(102, 3500, 3));

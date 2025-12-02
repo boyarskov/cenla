@@ -1,6 +1,8 @@
 package task6.task1.model;
 
-public class Service {
+import java.io.Serializable;
+
+public class Service implements Serializable {
     private String name;
     private double price;
     private static int nextId = 1;

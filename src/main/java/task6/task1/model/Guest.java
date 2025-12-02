@@ -2,8 +2,9 @@ package task6.task1.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class Guest {
+public class Guest implements Serializable {
     private String name;
     private List<Service> services;
     private static int nextId = 1;

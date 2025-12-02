@@ -2,8 +2,9 @@ package task6.task1.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class Hotel {
+public class Hotel implements Serializable {
     private List<Room> rooms;
     private List<Service> services;
 

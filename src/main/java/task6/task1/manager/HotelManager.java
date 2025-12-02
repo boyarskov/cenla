@@ -17,11 +17,12 @@ import java.util.ArrayList;
 
 public class HotelManager {
     private Hotel hotel;
-    // Гости, которые пока не привязаны к комнатам, но были импортированы из CSV
+    private Config config;
     private List<Guest> standaloneGuests = new ArrayList<>();
 
-    public HotelManager(Hotel hotel) {
+    public HotelManager(Hotel hotel, Config config) {
         this.hotel = hotel;
+        this.config = config;
     }
 
     public void checkIn(Guest guest, int roomNumber) {
@@ -64,6 +65,10 @@ public class HotelManager {
     }
 
     public void changeRoomStatus(int roomNumber, RoomStatus newStatus) {
+        if (!config.isAllowStatusChange()) {
+            System.out.println("Изменение статуса номера запрещено настройками (allowStatusChange=false).");
+            return;
+        }
         Room room = hotel.getRoomByNumber(roomNumber);
         if (room == null) {
             throw new HotelException("Номер " + roomNumber + " не найден.");
@@ -515,7 +520,7 @@ public class HotelManager {
 
     public void importBookings(String fileName) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line = reader.readLine(); // заголовок
+            String line = reader.readLine();
             int maxId = 0;
 
             while ((line = reader.readLine()) != null) {
@@ -550,14 +555,12 @@ public class HotelManager {
                     if (guestId != -1) {
                         guest = findGuestById(guestId);
                         if (guest == null) {
-                            // если гостя не нашли – создаём заглушку и кладём в standaloneGuests
                             guest = new Guest("Guest#" + guestId);
                             guest.setId(guestId);
                             standaloneGuests.add(guest);
                         }
                     }
 
-                    // если бронь с таким id уже есть — удаляем старую версию
                     Booking existing = findBookingById(id);
                     if (existing != null) {
                         removeBookingFromRooms(existing);
@@ -581,7 +584,6 @@ public class HotelManager {
         }
     }
 
-    //Пересобирает связи между объектами на основе истории бронирований.
     public void rebuildRelations() {
         for (Room room : hotel.getRooms()) {
             List<Booking> history = room.getBookingHistory();

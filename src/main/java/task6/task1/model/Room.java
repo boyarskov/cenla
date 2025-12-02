@@ -4,28 +4,31 @@ import task6.task1.model.enums.RoomStatus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class Room {
-    private int number;          // номер комнаты
-    private double price;        // цена за ночь
-    private int capacity;        // вместимость (сколько человек)
-    private RoomStatus status;   // текущий статус
-    private Guest guest;         // текущий постоялец (если есть)
+public class Room implements Serializable {
+    private int number;
+    private double price;
+    private int capacity;
+    private RoomStatus status;
+    private Guest guest;
     private static int nextId = 1;
     private int id;
-
     private List<Booking> bookingHistory;
+    private int maxHistoryEntries = 3;
 
     public Room(int number, double price, int capacity) {
         this.id = nextId++;
         this.number = number;
         this.price = price;
         this.capacity = capacity;
-        this.status = RoomStatus.FREE; // по умолчанию свободен
-        this.bookingHistory = new ArrayList<>(); // инициализация списка историй
+        this.status = RoomStatus.FREE;
+        this.bookingHistory = new ArrayList<>();
     }
 
-    // Геттеры и сеттеры
+    public void setMaxHistoryEntries(int maxHistoryEntries) {
+        this.maxHistoryEntries = maxHistoryEntries;
+    }
 
     public int getId() {
         return id;
@@ -69,12 +72,11 @@ public class Room {
 
     public void addBooking(Booking booking) {
         bookingHistory.add(booking);
-        if (bookingHistory.size() > 3) {
-            bookingHistory.remove(0); // храним только 3 последних
+        if (bookingHistory.size() > maxHistoryEntries) {
+            bookingHistory.remove(0);
         }
     }
 
-    // Получить последние брони
     public List<Booking> getBookingHistory() {
         return bookingHistory;
     }
